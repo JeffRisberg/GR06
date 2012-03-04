@@ -70,17 +70,4 @@ public class ColumnDescriptor {
     public void setDefaultValue(Object defaultValue) {
         this.defaultValue = defaultValue;
     }
-
-    public String getWijmoDataType() {
-        if (dataType == ColumnDataType.Financial)
-            return "currency";
-
-        if (dataType == ColumnDataType.Integer)
-            return "number";
-
-        if (dataType == ColumnDataType.Decimal)
-            return "number";
-
-        return "string";
-    }
 }
