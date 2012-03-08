@@ -137,6 +137,13 @@ class BookController {
         DecimalFormat decF = new DecimalFormat("###,##0.00")
         DecimalFormat intF = new DecimalFormat("###,##0")
 
+        // Decode sort
+        def dataKey = params['sorting[0][dataKey]']
+        def sortDirection = params['sorting[0][sortDirection]']
+
+        params.sort = dataKey
+        params.order = sortDirection && sortDirection == "ascending" ? "desc" : "asc"
+
         // Data
         List<Book> books = Book.list(params)
 
@@ -162,7 +169,7 @@ class BookController {
         def wrapper = [:]
         wrapper['series'] = gridData
 
-        println "returning " + wrapper.encodeAsJSON()
+        //println "returning " + wrapper.encodeAsJSON()
         render wrapper.encodeAsJSON();
     }
 }
