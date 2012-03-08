@@ -131,7 +131,7 @@ class BookController {
     }
 
     def gridData = {
-        //println "AJAX callback for gridData " + params
+        println "AJAX callback for gridData " + params
         def gridData = [:]
 
         DecimalFormat decF = new DecimalFormat("###,##0.00")
@@ -162,7 +162,7 @@ class BookController {
         def wrapper = [:]
         wrapper['series'] = gridData
 
-        //println "returning " + wrapper.encodeAsJSON()
+        println "returning " + wrapper.encodeAsJSON()
         render wrapper.encodeAsJSON();
     }
 }

@@ -31,6 +31,7 @@
          $("#list").wijgrid({
           allowColSizing: true,
           allowPaging: true,
+          allowSorting: true,
           pageSize: 10,
 
           data: new wijdatasource({
@@ -42,15 +43,13 @@
               },
               type: "POST",
               key: "series"
-            }),
-
+            }),           
             reader: {
-              read: function (dataSource) {
-              console.log(dataSource);
+              read: function (dataSource) {             
                 var count = dataSource.data.count;               
 
                 $("#entries").text("(" + count + " entries found)");
-                              
+                            
                 var columnDefs = [];               
                 for (var value in dataSource.data.columns) {  
                   var fieldName = dataSource.data.columns[value]        

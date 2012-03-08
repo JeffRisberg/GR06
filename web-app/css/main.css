@@ -157,13 +157,7 @@ th {
     line-height: 17px;
     padding: 2px 6px;
 }
-th a:link, th a:visited, th a:hover {
-    color: #333;
-    display: block;
-    font-size: 10px;
-    text-decoration: none;
-    width: 100%;
-}
+
 th.asc a, th.desc a {
     background-position: right;
     background-repeat: no-repeat;
