@@ -1,58 +1,203 @@
-import com.incra.Book
 
+import com.incra.biz.Client
+import com.incra.biz.Order
+import com.incra.biz.Product
+import com.incra.biz.ProductType
+import com.incra.pageFramework.Menu
+import com.incra.pageFramework.MenuItem
+import com.incra.pageFramework.Module
+import com.incra.security.Role
+import com.incra.security.User
+import com.incra.security.UserRole
+
+import grails.util.Environment
+
+/**
+ * The <i>BootStrap</i> class has been extended to set up reference data.
+ *
+ * @author Jeffrey Risberg
+ * @since 11/17/11
+ */
 class BootStrap {
 
     def init = { servletContext ->
+        switch (Environment.current) {
+            case Environment.DEVELOPMENT:
+            case Environment.TEST:
+            case Environment.PRODUCTION:
 
-        def publishers = [
-            "Random House",
-            "Houghton-Mifflen",
-            "Tor",
-            "Doubleday",
-            "Vantage Press",
-            "HBJ",
-            "Bantam",
-            "Grosset-Dunlap"
-        ]
-        def subtitles = [
-            "Danger under the Sea",
-            "A Clue for Nancy",
-            "Mr. Damon to the Rescue",
-            "Bringing up the lost Submarine",
-            "Searching for Gold",
-            "Adventure in the Air",
-            "Naval Terror of the Seas"
-        ]
-        Book book
-
-        book = new Book(title: "Giant Robot", author: "Appleton II", publisher: "Grosset & Dunlap", price: 12.77, pageCount: 200 )
-        book.save()
-        book = new Book(title: "Jetmarine", author: "Appleton II", subtitle: "Crossing the Ocean", publisher: "Grosset & Dunlap", price: 13.77, pageCount: 210 )
-        book.save()
-        book = new Book(title: "Atomic Earth Blaster", publisher: "Grosset & Dunlap", subtitle: "Adventure at the South Pole", author: "Appleton II", price: 12.45, pageCount: 160 )
-        book.save()
-        book = new Book(title: "Fellowship of the Ring", publisher: "George Allen & Unwin", author: "J. R. R. Tolkien", price: 29.99, pageCount: 301 )
-        book.save()
-        book = new Book(title: "The Two Towers", publisher: "George Allen & Unwin", author: "J. R. R. Tolkien", price: 29.95, pageCount: 308 )
-        book.save()
-        book = new Book(title: "Ocean Airport", subtitle: "Foiling the Hargolanders", publisher: "Grosset & Dunlap", author: "Appleton", price: 29.99, pageCount: 180 )
-        book.save()
-        book = new Book(title: "The Tower Treasure", publisher: "Grosset & Dunlap", author: "Franklin W. Dixon", price: 9.9, pageCount: 267 )
-        book.save()
-        book = new Book(title: "The Hidden Signpost", publisher: "Grosset & Dunlap", author: "Franklin W. Dixon", price: 9.9, pageCount: 278 )
-        book.save()
-
-        for (int i = 3; i < 2000; i ++) {
-            book = new Book(title: "The $i Towers",
-                    publisher: publishers[(int) (publishers.size() * Math.random())],
-                    subtitle: subtitles[(int) (subtitles.size() * Math.random())],
-                    author: "Unknown",
-                    price: 12.34+15.0*Math.random(),
-                    pageCount: 200 + (int) (60.0 * Math.random())
-                    )
-            book.save()
+                createRolesIfRequired()
+                createPageFrameworkIfRequired()
+                createUsersIfRequired()
+                createProductTypesAndProductsIfRequired()
+                createOrdersIfRequired()
         }
     }
+
     def destroy = {
     }
+
+    void createRolesIfRequired() {
+        if (Role.count() == 0) {
+            println "Fresh Database. Creating roles."
+
+            Role role
+
+            role = new Role(authority: "ROLE_ADMIN");
+            role.save();
+
+            role = new Role(authority: "ROLE_USER")
+            role.save();
+        }
+        else {
+            println "Roles already exist."
+        }
+    }
+
+    void createPageFrameworkIfRequired() {
+        Module module
+        Menu menu
+        MenuItem menuItem
+
+        if (Module.count() == 0) {
+            println "Fresh Database. Creating PageFramework."
+
+            module = new Module(name: "Main")
+            module.save()
+            menu = new Menu(name: "Main", module: module)
+            menu.save()
+
+            menuItem = new MenuItem(menu: menu, name: "Home", controller: "homepage", weight: 10);
+            menuItem.save()
+            menuItem = new MenuItem(menu: menu, name: "Campaign", controller: "campaign", weight: 20);
+            menuItem.save()
+            menuItem = new MenuItem(menu: menu, name: "Optimization", controller: "optimization", weight: 30);
+            menuItem.save()
+            menuItem = new MenuItem(menu: menu, name: "Reporting", controller: "reporting", weight: 40);
+            menuItem.save()
+            menuItem = new MenuItem(menu: menu, name: "Settings", controller: "settings", weight: 50);
+            menuItem.save()
+            menuItem = new MenuItem(menu: menu, name: "Administration", controller: "adminHome", weight: 60);
+            menuItem.save()
+        }
+        else {
+            println "PageFramework definitions already exist."
+        }
+    }
+
+    void createClientsIfRequired() {
+        /*
+         if (clientService.findCount() == 0) {
+         println "Creating clients"
+         clientService.createClient("Wal-Mart", true, "Sam Walton", "Bentonville")
+         clientService.createClient("McDonalds", true, "Ronald", "Oak Brook")
+         clientService.createClient("Toys-R-Us", false, "Geoffrey", "Atlanta")
+         }
+         else {
+         println "Clients already exist"
+         }
+         */
+    }
+
+    void createUsersIfRequired() {
+        if (User.count() == 0) {
+            println "Fresh Database. Creating basic users."
+
+            Role roleAdministrator = Role.get(1)
+            Role roleUser = Role.get(2)
+            User user
+            UserRole userRole
+            Client client
+
+            // jrisberg
+            user = new User(username: "jrisberg", password: "123456", enabled: true)
+            user.save()
+
+            userRole = new UserRole(user: user, role: roleAdministrator)
+            userRole.save()
+            userRole = new UserRole(user: user, role: roleUser)
+            userRole.save()
+
+            // bob
+            //client = clientService.findByName("Wal-Mart")
+            user = new User(username: "bob", password: "123456", client: client, enabled: true)
+            user.save()
+
+            userRole = new UserRole(user: user, role: roleUser)
+            userRole.save()
+
+            // todd
+            //client = clientService.findByName("McDonalds")
+            user = new User(username: "todd", password: "123456", client: client, enabled: true)
+            user.save()
+
+            userRole = new UserRole(user: user, role: roleUser)
+            userRole.save()
+        } else {
+            println "Users already exist."
+        }
+    }
+
+    void createProductTypesAndProductsIfRequired() {
+        if (ProductType.count() == 0) {
+            println "Creating ProductTypes and Products."
+            ProductType productType
+            Product product
+
+            productType = new ProductType(name: "Book", description: "Something that you read")
+            productType.save()
+
+            productType = new ProductType(name: "Electronics", description: "Like a computer")
+            productType.save()
+
+            productType = new ProductType(name: "Clothing", description: "Wearable items")
+            productType.save()
+
+            product = new Product(partNo: "456", name: "Pants", productType: productType, price: 55.26)
+            product.save()
+            product = new Product(partNo: "457", name: "Dress", productType: productType, price: 120.86)
+            product.save()
+            product = new Product(partNo: "458", name: "Skirt", productType: productType, price: 74.34)
+            product.save()
+            product = new Product(partNo: "459", name: "Jeans", productType: productType, price: 44.29)
+            product.save()
+            product = new Product(partNo: "460", name: "Tie", productType: productType, price: 15.72)
+            product.save()
+
+            productType = new ProductType(name: "Toy", description: "Something you play with")
+            productType.save()
+
+            product = new Product(partNo: "501", name: "Buzz Lightyear", productType: productType, price: 34.99)
+            product.save()
+            product = new Product(partNo: "502", name: "Furby", productType: productType, price: 24.95)
+            product.save()
+        }
+        else {
+            println "ProductTypes and Products already exist."
+        }
+    }
+
+    void createOrdersIfRequired() {
+        if (Order.count() == 0) {
+            println "Creating Orders."
+
+            Order order
+
+            order = new Order()
+            order.dateDue = new Date()
+            order.datePlaced = new Date()
+            order.value = 100
+            order.save()
+
+            order = new Order()
+            order.dateDue = new Date()
+            order.datePlaced = new Date()
+            order.value = 200
+            order.save()
+        }
+        else {
+            println "Orders already exist."
+        }
+    }
 }
+

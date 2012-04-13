@@ -1,42 +1,55 @@
 package com.incra.domain;
 
 /**
- * The <i>ColumnDescriptor</i> provides the metadata about a column in a display
- * screen.
+ * The <i>ColumnDescriptor</i> is provides the metadata about a column in a
+ * display screen. It is used to drive the list view and the Excel dump
+ * operations.
  * 
  * @author Jeffrey Risberg
- * @since 02/01/12
+ * @since 12/14/10
  */
 public class ColumnDescriptor {
+    private ViewType viewType;
     private String label;
     private String fieldName;
-    private ColumnDataType dataType;
     private ColumnAlignment alignment;
+    private ColumnDataType dataType;
     private Object defaultValue;
 
     /** Constructor */
-    public ColumnDescriptor(String label, String fieldName, ColumnDataType dataType,
-            ColumnAlignment alignment, Object defaultValue) {
+    public ColumnDescriptor(ViewType viewType, String label, String fieldName,
+            ColumnAlignment alignment, ColumnDataType dataType, Object defaultValue) {
+        super();
+        this.viewType = viewType;
         this.label = label;
         this.fieldName = fieldName;
-        this.dataType = dataType;
         this.alignment = alignment;
+        this.dataType = dataType;
         this.defaultValue = defaultValue;
     }
 
     /** Constructor */
-    public ColumnDescriptor(String label, String fieldName, ColumnDataType dataType,
-            ColumnAlignment alignment) {
-        this(label, fieldName, dataType, alignment, "");
+    public ColumnDescriptor(ViewType viewType, String label, String fieldName,
+            ColumnAlignment alignment, ColumnDataType dataType) {
+        this(viewType, label, fieldName, alignment, dataType, "");
     }
 
     /** Constructor */
-    public ColumnDescriptor(String fieldName, ColumnDataType dataType) {
-        this(fieldName, fieldName, dataType, ColumnAlignment.left, "");
+    public ColumnDescriptor(ViewType viewType, String label, String fieldName,
+            ColumnDataType dataType) {
+        this(viewType, label, fieldName, ColumnAlignment.Left, dataType, "");
+    }
+
+    public ViewType getViewType() {
+        return viewType;
     }
 
     public String getLabel() {
         return label;
+    }
+
+    public void setLabel(String label) {
+        this.label = label;
     }
 
     public String getFieldName() {

@@ -12,19 +12,25 @@ import java.util.Map;
  * @since 11/14/10
  */
 public enum LogEntrySeverity {
-  low(0),
-  mediumLow(1),
-  medium(2),
-  mediumHigh(3),
-  high(4);
+  LOW("Low", 0),
+  MED_LOW("Med-Low", 1),
+  MEDIUM("Medium", 2),
+  MED_HIGH("Med-High", 3),
+  HIGH("High", 4);
 
+  protected String label;
   protected int level;
 
-  private LogEntrySeverity(int level) {
+  private LogEntrySeverity(String label, int level) {
+    this.label = label;
     this.level = level;
 
     ObjectRepo.shared_objectList.add(this);
     ObjectRepo.shared_nameToObjectMap.put(this.name(), this);
+  }
+
+  public String getLabel() {
+    return label;
   }
 
   public int getLevel() {
