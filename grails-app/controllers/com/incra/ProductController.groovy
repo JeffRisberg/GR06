@@ -1,5 +1,7 @@
 package com.incra
 
+import com.incra.biz.Product
+
 import grails.converters.JSON
 
 class ProductController {
@@ -9,9 +11,13 @@ class ProductController {
 
     def getData = {
         println "call to getData for ProductController"
+        params.max = Math.min(params.max ? params.int('max') : 10, 100)
 
-        def result = []
+        def criteria = Product.createCriteria()
+        def query = { }
 
-        return result as JSON
+        List<Product> results = criteria.list(params, query)
+
+        return results as JSON
     }
 }

@@ -7,14 +7,14 @@ Ext.application({
     name: 'GR06',
 
     stores: [
-        'common.CustomerStore',
+        'common.AccountStore',
         'common.ProductStore',       
         'business.SalesOrderStore'
     ],
 
     controllers: [
         'common.MainTabController',
-        'common.CustomerController',
+        'common.AccountController',
         'common.ProductController',       
         'business.SalesOrderController'
     ],

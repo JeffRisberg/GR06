@@ -1,12 +1,12 @@
-Ext.define('GR06.view.common.CustomerPanel', {
+Ext.define('GR06.view.common.AccountPanel', {
     extend: 'Ext.panel.Panel',
-    alias: 'widget.customerPanel',
+    alias: 'widget.accountPanel',
     requires: [
-        'GR06.view.common.CustomerPanel'
+        'GR06.view.common.AccountPanel'
     ],
 
     border: 0,
-    id: 'CustomerPanel',
+    id: 'AccountPanel',
     padding: '',
     width: 250,
     layout: {

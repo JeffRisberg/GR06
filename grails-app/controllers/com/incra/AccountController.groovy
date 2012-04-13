@@ -1,21 +1,21 @@
 package com.incra
 
-import org.hsqldb.User
+import com.incra.biz.Account
 
 import grails.converters.JSON
 
-class CustomerController {
+class AccountController {
 
     def index = { []}
 
     def getData = {
-        println "call to getData for CustomerController"
+        println "call to getData for AccountController"
         params.max = Math.min(params.max ? params.int('max') : 10, 100)
 
-        def criteria = Customer.createCriteria()
+        def criteria = Account.createCriteria()
         def query = { }
 
-        List<User> results = criteria.list(params, query)
+        List<Account> results = criteria.list(params, query)
 
         return results as JSON
     }

@@ -1,4 +1,6 @@
 
+import com.incra.biz.Account
+import com.incra.biz.AccountType
 import com.incra.biz.Client
 import com.incra.biz.Order
 import com.incra.biz.Product
@@ -29,6 +31,8 @@ class BootStrap {
                 createRolesIfRequired()
                 createPageFrameworkIfRequired()
                 createUsersIfRequired()
+                createAccountTypesIfRequired()
+                createAccountsIfRequired()
                 createProductTypesAndProductsIfRequired()
                 createOrdersIfRequired()
         }
@@ -135,6 +139,57 @@ class BootStrap {
             userRole.save()
         } else {
             println "Users already exist."
+        }
+    }
+
+    void createAccountTypesIfRequired() {
+        if (AccountType.count() == 0) {
+            println "Fresh Database. Creating account types."
+
+            AccountType at
+
+            at = new AccountType(name: "Group")
+            at.save()
+            at = new AccountType(name: "Building")
+            at.save()
+            at = new AccountType(name: "Component")
+            at.save()
+            at = new AccountType(name: "Administrative")
+            at.save()
+            at = new AccountType(name: "Manufacturing")
+            at.save()
+            at = new AccountType(name: "Data Center")
+            at.save()
+            at = new AccountType(name: "Recycling Center")
+            at.save()
+            at = new AccountType(name: "Recovery Device")
+            at.save()
+            at = new AccountType(name: "Customer")
+            at.save()
+        }
+        else {
+            println "Existing account type values, skipping creation."
+        }
+    }
+
+    void createAccountsIfRequired() {
+        if (Account.count() == 0) {
+            println "Fresh Database. Creating accounts."
+
+            AccountType accountType = AccountType.get(1)
+            Account account
+
+            account = new Account(name: "Account 1", accountType: accountType)
+            account.save()
+            account = new Account(name: "Account 2", accountType: accountType)
+            account.save()
+            account = new Account(name: "Account 3", accountType: accountType)
+            account.save()
+            account = new Account(name: "Account 4", accountType: accountType)
+            account.save()
+        }
+        else {
+            println "Existing account values, skipping creation."
         }
     }
 
