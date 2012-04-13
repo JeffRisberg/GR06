@@ -7,28 +7,12 @@ Ext.define('GR06.controller.common.ProductController', {
     // references to views used in the controller.
     refs: [
         {
-            ref: 'catTreePanel',
-            selector: '#SiteCategoryPanel treepanel'
+            ref: 'productPanel',
+            selector: '#ProductPanel treepanel'
         },
         {
-            ref: 'siteComboBox',
-            selector: '#SiteCategoryPanel combobox'
+            ref: 'productComboBox',
+            selector: '#ProductPanel combobox'
         },      
     ],
-
-    init: function() {
-        this.control({
-            '#SiteCategoryPanel > treepanel' : {
-                render          : this.onTreePanelRender,
-                load            : this.onTreePanelLoad,
-                selectionchange : this.onTreePanelSelectionChange
-            },
-
-            '#SiteCategoryPanel > combobox': {
-                change          : this.onComboBoxChange
-            }
-        });
-
-        Ext.getStore("common.SiteStore").on('load', this.onSiteStoreLoad, this);
-    }
 });

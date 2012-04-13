@@ -10,7 +10,7 @@ Ext.define('GR06.store.common.CustomerStore', {
     autoLoad: true,
     proxy: {
         type: 'ajax',
-        url: '/customer/getData',
+        url: 'customer/getData',
         reader: {
             type: 'json',
             root: 'data'

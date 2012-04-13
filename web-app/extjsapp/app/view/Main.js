@@ -1,11 +1,11 @@
 
-Ext.define('GR06.view.Viewport', {
+Ext.define('GR06.view.Main', {
     extend: 'Ext.container.Viewport',
     requires: [
         'GR06.view.MainTabPanel'
     ],
 
-    id: 'MainViewport',
+    id: 'Main',
     layout: {
         align: 'stretch',
         type: 'vbox'
@@ -33,9 +33,8 @@ Ext.define('GR06.view.Viewport', {
                         },
                         {
                             xtype: 'container',
-                            autoLoad: { url:'/campaignManagement/showHeaderLogin', scripts:true },
-                            flex: 1,
-                            style: 'text-align:right'
+                            autoLoad: { url:'home/showHeader', scripts:true },
+                            flex: 1                          
                         }
                     ]
                 },
@@ -45,7 +44,7 @@ Ext.define('GR06.view.Viewport', {
                 },
                 {
                     xtype: 'container',
-                    html: '  <div style="float:left">Copyright (C) 2012 Jeff Risberg</div>\n',
+                    html: '<div style="float:left">Copyright (C) 2012 Jeff Risberg</div>\n',
                     id: 'FooterContainer',
                     padding: 5,
                     style: 'color: #808080'
@@ -55,5 +54,4 @@ Ext.define('GR06.view.Viewport', {
 
         me.callParent(arguments);
     }
-
 });
