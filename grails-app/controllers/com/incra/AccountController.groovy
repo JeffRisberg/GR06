@@ -2,7 +2,6 @@ package com.incra
 
 import com.incra.biz.Account
 
-import grails.converters.JSON
 
 class AccountController {
 
@@ -17,6 +16,9 @@ class AccountController {
 
         List<Account> results = criteria.list(params, query)
 
-        return results as JSON
+        def wrapper = [:]
+        wrapper['data'] = results
+        println "returning " + wrapper.encodeAsJSON()
+        render wrapper.encodeAsJSON()
     }
 }

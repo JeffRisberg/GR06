@@ -176,16 +176,16 @@ class BootStrap {
         if (Account.count() == 0) {
             println "Fresh Database. Creating accounts."
 
-            AccountType accountType = AccountType.get(1)
+            AccountType accountType = AccountType.findByName("Customer")
             Account account
 
-            account = new Account(name: "Account 1", accountType: accountType)
+            account = new Account(name: "Account 1", type: accountType)
             account.save()
-            account = new Account(name: "Account 2", accountType: accountType)
+            account = new Account(name: "Account 2", type: accountType)
             account.save()
-            account = new Account(name: "Account 3", accountType: accountType)
+            account = new Account(name: "Account 3", type: accountType)
             account.save()
-            account = new Account(name: "Account 4", accountType: accountType)
+            account = new Account(name: "Account 4", type: accountType)
             account.save()
         }
         else {

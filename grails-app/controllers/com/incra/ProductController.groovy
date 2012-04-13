@@ -2,7 +2,6 @@ package com.incra
 
 import com.incra.biz.Product
 
-import grails.converters.JSON
 
 class ProductController {
 
@@ -18,6 +17,9 @@ class ProductController {
 
         List<Product> results = criteria.list(params, query)
 
-        return results as JSON
+        def wrapper = [:]
+        wrapper['data'] = results
+        println "returning " + wrapper.encodeAsJSON()
+        render wrapper.encodeAsJSON()
     }
 }
