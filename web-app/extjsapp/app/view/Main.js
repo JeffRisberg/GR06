@@ -20,7 +20,7 @@ Ext.define('GR06.view.Main', {
                     xtype: 'container',
                     height: 50,
                     id: 'HeaderContainer',
-                    padding: 5,
+                    padding: 0,
                     layout: {
                         align: 'stretch',
                         type: 'hbox'
@@ -28,12 +28,12 @@ Ext.define('GR06.view.Main', {
                     items: [
                         {
                             xtype: 'container',
-                            html: '<a href="/"><img src="/images/logo.png"></a>',
+                            html: '<a href="/GR06"><img src="images/logo.png"></a>',
                             flex: 1
                         },
                         {
                             xtype: 'container',
-                            autoLoad: { url:'home/showHeader', scripts:true },
+                            autoLoad: { url:'pageFramework/showHeader', scripts:true },
                             flex: 1                          
                         }
                     ]
@@ -41,7 +41,19 @@ Ext.define('GR06.view.Main', {
                 {
                     xtype: 'mainTabPanel',
                     flex: 1
-                },
+                },              
+                {
+                    xtype: 'combobox',
+                    id: 'AccountComboBox',
+                    queryMode: 'local',
+                    size: 32,
+                    editable: false,
+                    displayField: 'name',
+                    forceSelection: true,
+                    store: 'common.AccountStore',
+                    valueField: 'id',
+                    flex: 0
+                },                                           
                 {
                     xtype: 'container',
                     html: '<div style="float:left">Copyright (C) 2012 Jeff Risberg</div>\n',

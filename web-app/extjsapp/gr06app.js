@@ -2,6 +2,7 @@ Ext.Loader.setConfig({
     enabled: true
 });
 
+alert("t");
 Ext.application({
     appFolder: 'extjsapp/app',
     name: 'GR06',
@@ -20,9 +21,9 @@ Ext.application({
     ],
 
     launch: function() {      
-        Ext.QuickTips.init();       
-
+        Ext.QuickTips.init();    
+        Ext.require('GR06.Override');   
+        alert("launch");
         var main = Ext.create('GR06.view.Main');
     }
-
 });

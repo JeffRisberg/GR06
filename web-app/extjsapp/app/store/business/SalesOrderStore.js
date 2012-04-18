@@ -1,4 +1,4 @@
-/*
+/**
  * Store for sales order model.
  */
 

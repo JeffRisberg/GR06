@@ -1,9 +1,6 @@
 Ext.define('GR06.view.common.AccountPanel', {
     extend: 'Ext.panel.Panel',
-    alias: 'widget.accountPanel',
-    requires: [
-        'GR06.view.common.AccountPanel'
-    ],
+    alias: 'widget.accountPanel',    
 
     border: 0,
     id: 'AccountPanel',
@@ -17,7 +14,7 @@ Ext.define('GR06.view.common.AccountPanel', {
     bodyPadding: 5,
     collapsible: true,
     hideCollapseTool: true,
-    title: 'Site / Category',
+    title: 'Accounts',
 
     initComponent: function() {
         var me = this;
@@ -34,27 +31,21 @@ Ext.define('GR06.view.common.AccountPanel', {
                 },
                 {
                     xtype: 'combobox',
-                    id: 'SiteComboBox',
+                    id: 'AccountComboBox',
                     queryMode: 'local',
                     size: 32,
                     editable: false,
                     displayField: 'url',
                     forceSelection: true,
-                    store: 'common.SiteStore',
+                    store: 'common.AccountStore',
                     valueField: 'id',
                     flex: 0
                 },
                 {
                     xtype: 'label',
                     margin: '0 0 2 0',
-                    text: 'Category',
+                    text: 'Account',
                     flex: 0
-                },
-                {
-                    xtype: 'catTreePanel',
-                    id: 'CatTree',
-                    store: 'common.CatTreeStore',
-                    flex: 1                 
                 }
             ]
         });

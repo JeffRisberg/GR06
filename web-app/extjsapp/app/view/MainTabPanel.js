@@ -17,12 +17,25 @@ Ext.define('GR06.view.MainTabPanel', {
                 {
                     xtype: 'panel',
                     itemId: 'HomePanel',
-                    title: 'Home'
+                    title: 'Home',
+                    tbar : {
+                      items : [ {
+                        xtype : 'button',
+                        text : 'Simple Menu',
+                        menu : { // 4
+                          showSeparator : false, // 5
+                          items : [ {
+                            text : 'menu item one'
+                            }, {
+                            text : 'menu item two'
+                            } ]
+                        }   
+                      } ]
+                    }    
                 }
             ]
         });
 
         me.callParent(arguments);
     }
-
 });
