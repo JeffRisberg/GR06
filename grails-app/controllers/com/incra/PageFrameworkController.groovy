@@ -12,7 +12,7 @@ import com.incra.pageFramework.MenuItem
 class PageFrameworkController {
 
     def index = {
-        println "page framework controller"
+        println "call to page framework controller index"
         []
     }
 

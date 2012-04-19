@@ -2,18 +2,19 @@ Ext.define('GR06.view.common.AccountPanel', {
     extend: 'Ext.panel.Panel',
     alias: 'widget.accountPanel',    
 
-    border: 0,
+    requires: [
+        'GR06.store.common.AccountStore'
+    ],
+    
     id: 'AccountPanel',
-    padding: '',
-    width: 250,
+    border: 0,
+    padding: '',   
     layout: {
         align: 'stretch',
         padding: '',
         type: 'vbox'
     },
-    bodyPadding: 5,
-    collapsible: true,
-    hideCollapseTool: true,
+    bodyPadding: 5,   
     title: 'Accounts',
 
     initComponent: function() {
@@ -22,11 +23,9 @@ Ext.define('GR06.view.common.AccountPanel', {
         Ext.applyIf(me, {
             items: [
                 {
-                    xtype: 'label',
-                    height: 15,
-                    margin: '0 0 2 0',
-                    width: 51,
-                    text: 'Site',
+                    xtype: 'label',                  
+                    margin: '0 0 2 0',                 
+                    text: 'Account',
                     flex: 0
                 },
                 {
@@ -35,11 +34,11 @@ Ext.define('GR06.view.common.AccountPanel', {
                     queryMode: 'local',
                     size: 32,
                     editable: false,
-                    displayField: 'url',
+                    displayField: 'name',
                     forceSelection: true,
                     store: 'common.AccountStore',
                     valueField: 'id',
-                    flex: 0
+                    flex: 1
                 },
                 {
                     xtype: 'label',

@@ -1,17 +1,26 @@
 package com.incra
 
-import grails.converters.JSON
+import com.incra.biz.SalesOrder
 
+/**
+ * 
+ * @author Jeffrey Risberg
+ * @since April 2012
+ */
 class SalesOrderController {
-
-    def index = { []}
-
 
     def getData = {
         println "call to getData for SalesOrder controller"
+        params.max = Math.min(params.max ? params.int('max') : 10, 100)
 
-        def result = []
+        def criteria = SalesOrder.createCriteria()
+        def query = { }
 
-        return result as JSON
+        List<SalesOrder> results = criteria.list(params, query)
+
+        def wrapper = [:]
+        wrapper['data'] = results
+        println "returning " + wrapper.encodeAsJSON()
+        render wrapper.encodeAsJSON()
     }
 }

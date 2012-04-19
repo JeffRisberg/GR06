@@ -1,5 +1,5 @@
 /**
- * Store for the Product list box.
+ * Store for the Product list.
  */
 Ext.define('GR06.store.common.ProductStore', {
     extend: 'Ext.data.Store',

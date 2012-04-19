@@ -1,15 +1,13 @@
-
 Ext.define('GR06.view.Main', {
     extend: 'Ext.container.Viewport',
+    alias: 'view.Main',
+    
     requires: [
         'GR06.view.MainTabPanel'
     ],
 
     id: 'Main',
-    layout: {
-        align: 'stretch',
-        type: 'vbox'
-    },
+    layout: { align: 'stretch', type: 'vbox' },
 
     initComponent: function() {
         var me = this;
@@ -18,7 +16,7 @@ Ext.define('GR06.view.Main', {
             items: [
                 {
                     xtype: 'container',
-                    height: 50,
+                    height: 45,
                     id: 'HeaderContainer',
                     padding: 0,
                     layout: {
@@ -39,27 +37,16 @@ Ext.define('GR06.view.Main', {
                     ]
                 },
                 {
-                    xtype: 'mainTabPanel',
+                    xtype: 'mainTabPanel',                  
                     flex: 1
-                },              
-                {
-                    xtype: 'combobox',
-                    id: 'AccountComboBox',
-                    queryMode: 'local',
-                    size: 32,
-                    editable: false,
-                    displayField: 'name',
-                    forceSelection: true,
-                    store: 'common.AccountStore',
-                    valueField: 'id',
-                    flex: 0
-                },                                           
+                },                                                                     
                 {
                     xtype: 'container',
                     html: '<div style="float:left">Copyright (C) 2012 Jeff Risberg</div>\n',
                     id: 'FooterContainer',
                     padding: 5,
-                    style: 'color: #808080'
+                    style: 'background: #8080FF; color: #333',
+                    flex: 0
                 }
             ]
         });

@@ -1,55 +1,53 @@
-Ext.define('GR06.view.common.ProductPanel', {
-    extend: 'Ext.panel.Panel',
-    alias: 'widget.productPanel',   
+Ext.define('GR06.view.business.SalesOrderPanel', {
+    extend: 'Ext.Panel',
+    alias: 'widget.salesOrderPanel',
 
     requires: [
-        'GR06.store.common.ProductStore'
+        'GR06.store.business.SalesOrderStore'
     ],
     
-    id: 'ProductPanel',
-    border: 0,
-    padding: '',  
+    id: 'SalesOrderPanel',   
+    padding: '',   
     layout: {
         align: 'stretch',
         padding: '',
         type: 'vbox'
     },
-    bodyPadding: 5,   
-    title: 'Product',
-
+    bodyPadding: 5,    
+    
     initComponent: function() {
         var me = this;
 
         Ext.applyIf(me, {
             items: [
                 {
-                    xtype: 'label',                   
-                    margin: '0 0 2 0',                 
-                    text: 'Product',
+                    xtype: 'label',                 
+                    margin: '0 0 2 0',                   
+                    text: 'Sales Order Section 1',
                     flex: 0
                 },
                 {
                     xtype: 'combobox',
-                    id: 'ProductComboBox',
+                    id: 'SalesOrderBox',
                     queryMode: 'local',
                     size: 32,
                     editable: false,
-                    displayField: 'name',
+                    displayField: 'dateDue',
                     forceSelection: true,
-                    store: 'common.ProductStore',
+                    store: 'business.SalesOrderStore',
                     valueField: 'id',
                     flex: 1
                 },
                 {
                     xtype: 'label',
                     margin: '0 0 2 0',
-                    text: 'Text 2',
+                    text: 'Section 2',
                     flex: 0
-                }               
+                }
             ]
         });
 
-        me.callParent(arguments);
+        me.callParent(arguments);      
     }
 
 });

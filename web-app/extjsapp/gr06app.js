@@ -2,15 +2,14 @@ Ext.Loader.setConfig({
     enabled: true
 });
 
-alert("t");
 Ext.application({
     appFolder: 'extjsapp/app',
     name: 'GR06',
 
-    stores: [
-        'common.AccountStore',
+    stores: [       
         'common.ProductStore',       
-        'business.SalesOrderStore'
+        'business.SalesOrderStore',
+        'common.AccountStore'
     ],
 
     controllers: [
@@ -20,10 +19,14 @@ Ext.application({
         'business.SalesOrderController'
     ],
 
+    views: [
+        'Main'
+    ],
+        
     launch: function() {      
         Ext.QuickTips.init();    
         Ext.require('GR06.Override');   
-        alert("launch");
+       
         var main = Ext.create('GR06.view.Main');
     }
 });

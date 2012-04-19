@@ -7,10 +7,4 @@ package com.incra
  * @since 04/12/12
  */
 class HomePageController {
-
-    def showHeader = {
-        // not currently called
-        println "called showHeader"
-        render template: '/header'
-    }
 }

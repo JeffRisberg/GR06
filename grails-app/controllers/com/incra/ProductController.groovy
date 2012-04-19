@@ -3,10 +3,12 @@ package com.incra
 import com.incra.biz.Product
 
 
+/**
+ * 
+ * @author Jeffrey Risberg
+ * @since April 2012
+ */
 class ProductController {
-
-    def index = { []}
-
 
     def getData = {
         println "call to getData for ProductController"

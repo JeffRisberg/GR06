@@ -3944,7 +3944,7 @@ var Base = Ext.Base = function() {};
             }
 
 
-
+if( !cls ) { alert( "crap "+name ); } 
             return this.getInstantiator(args.length)(cls, args);
         },
 

@@ -2,7 +2,7 @@
 import com.incra.biz.Account
 import com.incra.biz.AccountType
 import com.incra.biz.Client
-import com.incra.biz.Order
+import com.incra.biz.SalesOrder
 import com.incra.biz.Product
 import com.incra.biz.ProductType
 import com.incra.pageFramework.Menu
@@ -34,7 +34,7 @@ class BootStrap {
                 createAccountTypesIfRequired()
                 createAccountsIfRequired()
                 createProductTypesAndProductsIfRequired()
-                createOrdersIfRequired()
+                createSalesOrdersIfRequired()
         }
     }
 
@@ -232,26 +232,26 @@ class BootStrap {
         }
     }
 
-    void createOrdersIfRequired() {
-        if (Order.count() == 0) {
-            println "Creating Orders."
+    void createSalesOrdersIfRequired() {
+        if (SalesOrder.count() == 0) {
+            println "Creating SalesOrders."
 
-            Order order
+            SalesOrder order
 
-            order = new Order()
+            order = new SalesOrder()
             order.dateDue = new Date()
             order.datePlaced = new Date()
             order.value = 100
             order.save()
 
-            order = new Order()
+            order = new SalesOrder()
             order.dateDue = new Date()
             order.datePlaced = new Date()
             order.value = 200
             order.save()
         }
         else {
-            println "Orders already exist."
+            println "SalesOrders already exist."
         }
     }
 }
