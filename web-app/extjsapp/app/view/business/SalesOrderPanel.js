@@ -6,13 +6,14 @@ Ext.define('GR06.view.business.SalesOrderPanel', {
         'GR06.store.business.SalesOrderStore'
     ],
     
+    title: 'Sales Orders',
     id: 'SalesOrderPanel',   
-    padding: '',   
     layout: {
         align: 'stretch',
         padding: '',
         type: 'vbox'
     },
+    padding: '',   
     bodyPadding: 5,    
     
     initComponent: function() {

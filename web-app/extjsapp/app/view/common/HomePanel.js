@@ -1,13 +1,13 @@
-Ext.define('GR06.view.common.AccountPanel', {
+Ext.define('GR06.view.common.HomePanel', {
     extend: 'Ext.panel.Panel',
-    alias: 'widget.accountPanel',    
+    alias: 'widget.homePanel',    
 
     requires: [
         'GR06.store.common.AccountStore'
     ],
-    
-    title: 'Accounts',
-    id: 'AccountPanel',
+  
+    title: 'Home',  
+    id: 'HomePanel',
     layout: {
         align: 'stretch',
         padding: '',
@@ -23,14 +23,14 @@ Ext.define('GR06.view.common.AccountPanel', {
         Ext.applyIf(me, {
             items: [
                 {
-                    xtype: 'label',                  
+                    xtype: 'label',                   
                     margin: '0 0 2 0',                 
-                    text: 'Account',
+                    text: 'Home Section 1',
                     flex: 0
                 },
                 {
                     xtype: 'combobox',
-                    id: 'AccountComboBox',
+                    id: 'AccountBox',
                     queryMode: 'local',
                     size: 32,
                     editable: false,
@@ -43,7 +43,7 @@ Ext.define('GR06.view.common.AccountPanel', {
                 {
                     xtype: 'label',
                     margin: '0 0 2 0',
-                    text: 'Account',
+                    text: 'Home Section 2',
                     flex: 0
                 }
             ]

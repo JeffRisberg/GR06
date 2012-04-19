@@ -1,8 +1,9 @@
 Ext.define('GR06.view.MainTabPanel', {
     extend: 'Ext.tab.Panel',
     alias: 'widget.mainTabPanel',
+    
     requires: [
-        'GR06.view.common.HomeXPanel',
+        'GR06.view.common.HomePanel',
         'GR06.view.common.AccountPanel',
         'GR06.view.common.ProductPanel',
         'GR06.view.business.SalesOrderPanel',
@@ -18,7 +19,7 @@ Ext.define('GR06.view.MainTabPanel', {
         Ext.applyIf(me, {                   
           items: [ 
           {
-            xtype: 'homeXPanel',                         
+            xtype: 'homePanel',                         
           }, 
           {
             xtype: 'accountPanel',                         

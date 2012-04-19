@@ -12,8 +12,7 @@ Ext.application({
         'common.AccountStore'
     ],
 
-    controllers: [
-        'common.MainTabController',
+    controllers: [      
         'common.AccountController',
         'common.ProductController',       
         'business.SalesOrderController'

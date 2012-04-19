@@ -195,7 +195,7 @@ class BootStrap {
 
     void createProductTypesAndProductsIfRequired() {
         if (ProductType.count() == 0) {
-            println "Creating ProductTypes and Products."
+            println "Fresh Database. Creating ProductTypes and Products."
             ProductType productType
             Product product
 
@@ -234,7 +234,7 @@ class BootStrap {
 
     void createSalesOrdersIfRequired() {
         if (SalesOrder.count() == 0) {
-            println "Creating SalesOrders."
+            println "Fresh Database. Creating SalesOrders."
 
             SalesOrder order
 
