@@ -6,9 +6,12 @@
     <title><g:layoutTitle/></title>
 
     <link rel="stylesheet" href="${resource(dir: 'extjsapp/extjs/resources/css', file: 'ext-all.css')}"/>
-    <link rel="stylesheet" href="${resource(dir: 'extjsapp/ux/css', file: 'CheckHeader.css')}"/>   
+    <link rel="stylesheet" href="${resource(dir: 'extjsapp/ux/css', file: 'CheckHeader.css')}"/>          
     
-    <script type="text/javascript" src="${resource(dir: 'extjsapp/extjs', file: 'bootstrap.js')}"></script>
+    <script type="text/javascript" src="${resource(dir: 'extjsapp/extjs', file: 'ext-all-debug.js')}"></script>
+    <script type="text/javascript">
+      Ext.gr06 = { appFolder: '/extjsapp/app', uxPath: '/extjsapp/ux' };
+    </script>
     <script type="text/javascript" src="${resource(dir: 'extjsapp', file: 'gr06app.js')}"></script>
 
     <g:layoutHead/>

@@ -43,7 +43,7 @@ class BootStrap {
 
     void createRolesIfRequired() {
         if (Role.count() == 0) {
-            println "Fresh Database. Creating roles."
+            println "Fresh Database. Creating Roles."
 
             Role role
 
@@ -64,7 +64,7 @@ class BootStrap {
         MenuItem menuItem
 
         if (Module.count() == 0) {
-            println "Fresh Database. Creating PageFramework."
+            println "Fresh Database. Creating PageFramework definitions."
 
             module = new Module(name: "Main")
             module.save()
@@ -105,7 +105,7 @@ class BootStrap {
 
     void createUsersIfRequired() {
         if (User.count() == 0) {
-            println "Fresh Database. Creating basic users."
+            println "Fresh Database. Creating Users."
 
             Role roleAdministrator = Role.get(1)
             Role roleUser = Role.get(2)
@@ -144,7 +144,7 @@ class BootStrap {
 
     void createAccountTypesIfRequired() {
         if (AccountType.count() == 0) {
-            println "Fresh Database. Creating account types."
+            println "Fresh Database. Creating AccountTypes."
 
             AccountType at
 
@@ -168,13 +168,13 @@ class BootStrap {
             at.save()
         }
         else {
-            println "Existing account type values, skipping creation."
+            println "Existing AccountType values, skipping creation."
         }
     }
 
     void createAccountsIfRequired() {
         if (Account.count() == 0) {
-            println "Fresh Database. Creating accounts."
+            println "Fresh Database. Creating Accounts."
 
             AccountType accountType = AccountType.findByName("Customer")
             Account account
@@ -189,7 +189,7 @@ class BootStrap {
             account.save()
         }
         else {
-            println "Existing account values, skipping creation."
+            println "Existing Account values, skipping creation."
         }
     }
 
