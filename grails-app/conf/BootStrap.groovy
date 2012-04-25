@@ -2,9 +2,9 @@
 import com.incra.biz.Account
 import com.incra.biz.AccountType
 import com.incra.biz.Client
-import com.incra.biz.SalesOrder
 import com.incra.biz.Product
 import com.incra.biz.ProductType
+import com.incra.biz.SalesOrder
 import com.incra.pageFramework.Menu
 import com.incra.pageFramework.MenuItem
 import com.incra.pageFramework.Module
@@ -208,23 +208,30 @@ class BootStrap {
             productType = new ProductType(name: "Clothing", description: "Wearable items")
             productType.save()
 
-            product = new Product(partNo: "456", name: "Pants", productType: productType, price: 55.26)
+            product = new Product(productType: productType, partNo: "456",
+                    name: "Pants", description: "Black slacks", price: 55.26)
             product.save()
-            product = new Product(partNo: "457", name: "Dress", productType: productType, price: 120.86)
+            product = new Product(productType: productType, partNo: "457",
+                    name: "Dress", description: "Pinstripe", price: 120.86)
             product.save()
-            product = new Product(partNo: "458", name: "Skirt", productType: productType, price: 74.34)
+            product = new Product(productType: productType, partNo: "458",
+                    name: "Skirt",description: "Yellow amber", price: 74.34)
             product.save()
-            product = new Product(partNo: "459", name: "Jeans", productType: productType, price: 44.29)
+            product = new Product(productType: productType, partNo: "459",
+                    name: "Jeans", description: "Levi's", price: 44.29)
             product.save()
-            product = new Product(partNo: "460", name: "Tie", productType: productType, price: 15.72)
+            product = new Product(productType: productType, partNo: "460",
+                    name: "Tie", description: "Striped", price: 15.72)
             product.save()
 
             productType = new ProductType(name: "Toy", description: "Something you play with")
             productType.save()
 
-            product = new Product(partNo: "501", name: "Buzz Lightyear", productType: productType, price: 34.99)
+            product = new Product(productType: productType, partNo: "501",
+                    name: "Buzz Lightyear", description: "Space Ranger", price: 34.99)
             product.save()
-            product = new Product(partNo: "502", name: "Furby", productType: productType, price: 24.95)
+            product = new Product(productType: productType, partNo: "502",
+                    name: "Furby", description: "Black and white", price: 24.95)
             product.save()
         }
         else {

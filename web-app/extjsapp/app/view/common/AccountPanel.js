@@ -21,23 +21,15 @@ Ext.define('GR06.view.common.AccountPanel', {
         var me = this;
 
         Ext.applyIf(me, {
-            items: [
+            items: [               
                 {
-                    xtype: 'label',                  
-                    margin: '0 0 2 0',                 
-                    text: 'Account',
-                    flex: 0
-                },
-                {
-                    xtype: 'combobox',
-                    id: 'AccountComboBox',
-                    queryMode: 'local',
-                    size: 32,
-                    editable: false,
-                    displayField: 'name',
-                    forceSelection: true,
-                    store: 'common.AccountStore',
-                    valueField: 'id',
+                    xtype: 'grid',
+                    columns: [        
+                        { dataIndex: 'name', text: 'Name', align:'left', width: 200 },
+                        { dataIndex: 'description', text: 'Description', align:'left' }
+                     
+                    ],
+                    store: Ext.create('GR06.store.common.AccountStore'),
                     flex: 1
                 },
                 {

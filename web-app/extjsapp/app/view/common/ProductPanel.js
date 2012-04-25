@@ -15,35 +15,27 @@ Ext.define('GR06.view.common.ProductPanel', {
         type: 'vbox'
     },
     bodyPadding: 5,   
-    title: 'Product',
+    title: 'Products',
 
     initComponent: function() {
         var me = this;
 
         Ext.applyIf(me, {
-            items: [
+            items: [               
                 {
-                    xtype: 'label',                   
-                    margin: '0 0 2 0',                 
-                    text: 'Product',
-                    flex: 0
-                },
-                {
-                    xtype: 'combobox',
-                    id: 'ProductComboBox',
-                    queryMode: 'local',
-                    size: 32,
-                    editable: false,
-                    displayField: 'name',
-                    forceSelection: true,
-                    store: 'common.ProductStore',
-                    valueField: 'id',
+                    xtype: 'grid',
+                    columns: [        
+                        { dataIndex: 'name', text: 'Name', align:'left', width: 200 },
+                        { dataIndex: 'description', text: 'Description', align:'left' },
+                        { dataIndex: 'price', text: 'Price', align:'right' }
+                    ],
+                    store: Ext.create('GR06.store.common.ProductStore'),
                     flex: 1
                 },
                 {
                     xtype: 'label',
                     margin: '0 0 2 0',
-                    text: 'Text 2',
+                    text: 'Updated to 2011 data',
                     flex: 0
                 }               
             ]
