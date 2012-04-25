@@ -25,9 +25,10 @@ Ext.define('GR06.view.common.ProductPanel', {
                 {
                     xtype: 'grid',
                     columns: [        
-                        { dataIndex: 'name', text: 'Name', align:'left', width: 200 },
-                        { dataIndex: 'description', text: 'Description', align:'left' },
-                        { dataIndex: 'price', text: 'Price', align:'right' }
+                        { dataIndex: 'type', text: 'Type', align: 'left', width: 200 },
+                        { dataIndex: 'name', text: 'Name', align: 'left', width: 200 },
+                        { dataIndex: 'description', text: 'Description', align: 'left' },
+                        { dataIndex: 'price', text: 'Price', align: 'right' }
                     ],
                     store: Ext.create('GR06.store.common.ProductStore'),
                     flex: 1

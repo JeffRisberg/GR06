@@ -17,10 +17,22 @@ class ProductController {
         def criteria = Product.createCriteria()
         def query = { }
 
-        List<Product> results = criteria.list(params, query)
+        List<Product> productList = criteria.list(params, query)
+
+        def products = []
+        productList.each { Product product ->
+            Map map = [:]
+
+            map['id'] = product.id
+            map['name'] = product.name
+            map['description'] = product.description
+            map['price'] = product.price
+            map['type'] = product.productType.name
+            products.add(map)
+        }
 
         def wrapper = [:]
-        wrapper['data'] = results
+        wrapper['data'] = products
         println "returning " + wrapper.encodeAsJSON()
         render wrapper.encodeAsJSON()
     }
