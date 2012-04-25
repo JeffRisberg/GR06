@@ -20,18 +20,24 @@ Ext.define('GR06.view.common.ProductPanel', {
     initComponent: function() {
         var me = this;
 
+        var myTpl = new Ext.XTemplate(
+        '<tpl for=".">',
+        '<div class="panel" style="margin: 10px; background: #eef; padding: 5px">',
+        '  <div>{name}</div>',
+        '  <div class="panelDescription">{description}</div>',
+        '</div>',
+        '</tpl>',        
+        { compiled: true }
+        ); 
+        
         Ext.applyIf(me, {
             items: [               
-                {
-                    xtype: 'grid',
-                    columns: [        
-                        { dataIndex: 'type', text: 'Type', align: 'left', width: 200 },
-                        { dataIndex: 'name', text: 'Name', align: 'left', width: 200 },
-                        { dataIndex: 'description', text: 'Description', align: 'left' },
-                        { dataIndex: 'price', text: 'Price', align: 'right' }
-                    ],
-                    store: Ext.create('GR06.store.common.ProductStore'),
-                    flex: 1
+                 {
+                    xtype: 'dataview',
+                    store: 'common.ProductStore',
+                    tpl: myTpl,      
+                    itemSelector: 'div.panel',    
+                    flex: 1,                                      
                 },
                 {
                     xtype: 'label',
