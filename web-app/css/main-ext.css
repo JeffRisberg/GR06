@@ -1,0 +1,43 @@
+
+.iv-attention-icon {
+    background-image: url('/images/icon/page_exclamation.png')
+}
+
+.iv-upload-icon {
+    background-image: url('/images/icon/page_add.png')
+}
+
+.iv-lock-icon {
+    background-image: url('/images/icon/lock.png')
+}
+
+.iv-auto-icon {
+    background-image: url('/images/icon/lightning_add.png')
+}
+.iv-type-icon {
+    background-image: url('/images/icon/textfield_add.png')
+}
+
+.iv-upload-icon {
+    background-image: url('/images/icon/page_white_add.png')
+}
+
+.iv-add-icon {
+    background-image: url('/images/icon/add.png')
+}
+
+.iv-save-icon {
+    background-image: url('/images/icon/disk.png')
+}
+
+.iv-revert-icon {
+    background-image: url('/images/icon/arrow_undo.png')
+}
+
+.iv-excel-icon {
+    background-image: url('/images/icon/excel.png')
+}
+
+.iv-clock-icon {
+    background-image: url('/images/icon/clock.png')
+}

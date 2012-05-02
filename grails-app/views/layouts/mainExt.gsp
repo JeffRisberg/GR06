@@ -7,6 +7,7 @@
 
     <link rel="stylesheet" href="${resource(dir: 'extjsapp/extjs/resources/css', file: 'ext-all.css')}"/>
     <link rel="stylesheet" href="${resource(dir: 'extjsapp/ux/css', file: 'CheckHeader.css')}"/>          
+    <link rel="stylesheet" href="${resource(dir: 'css', file: 'main-ext.css')}"/>
     
     <script type="text/javascript" src="${resource(dir: 'extjsapp/extjs', file: 'ext-all-debug.js')}"></script>
     <script type="text/javascript">
@@ -14,10 +15,10 @@
     </script>
     <script type="text/javascript" src="${resource(dir: 'extjsapp', file: 'gr06app.js')}"></script>
 
-    <g:layoutHead/>
+    <g:layoutHead />
 </head>
 
 <body>
-<g:layoutBody/>
+<g:layoutBody />
 </body>
 </html>
