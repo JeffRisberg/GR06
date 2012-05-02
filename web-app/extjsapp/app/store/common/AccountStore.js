@@ -7,7 +7,7 @@ Ext.define('GR06.store.common.AccountStore', {
     model: 'GR06.model.common.Account',
 
     storeId: 'common.AccountStore',
-    autoLoad: true,
+    
     proxy: {
         type: 'ajax',
         url: 'account/getData',

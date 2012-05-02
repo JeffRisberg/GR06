@@ -6,8 +6,7 @@ Ext.define('GR06.view.business.SalesOrderPanel', {
         'GR06.store.business.SalesOrderStore'
     ],
     
-    title: 'Sales Orders',
-    id: 'SalesOrderPanel',   
+    title: 'Sales Orders',    
     layout: {
         align: 'stretch',
         padding: '',
@@ -29,7 +28,7 @@ Ext.define('GR06.view.business.SalesOrderPanel', {
                 },
                 {
                     xtype: 'combobox',
-                    id: 'SalesOrderBox',
+                    itemId: 'salesOrder',
                     queryMode: 'local',
                     size: 32,
                     editable: false,

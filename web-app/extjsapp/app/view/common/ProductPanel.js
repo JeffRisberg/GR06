@@ -5,8 +5,7 @@ Ext.define('GR06.view.common.ProductPanel', {
     requires: [
         'GR06.store.common.ProductStore'
     ],
-    
-    id: 'ProductPanel',
+      
     border: 0,
     padding: '',  
     layout: {
@@ -34,7 +33,8 @@ Ext.define('GR06.view.common.ProductPanel', {
             items: [               
                  {
                     xtype: 'dataview',
-                    store: 'common.ProductStore',
+                    itemId: 'productView',
+                    store: 'common.ProductStore',                   
                     tpl: myTpl,      
                     itemSelector: 'div.panel',    
                     flex: 1,                                      
@@ -50,5 +50,4 @@ Ext.define('GR06.view.common.ProductPanel', {
 
         me.callParent(arguments);
     }
-
 });

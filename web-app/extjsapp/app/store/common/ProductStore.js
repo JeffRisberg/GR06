@@ -7,7 +7,7 @@ Ext.define('GR06.store.common.ProductStore', {
     model: 'GR06.model.common.Product',
 
     storeId: 'common.ProductStore',
-    autoLoad: true,
+    
     proxy: {
         type: 'ajax',
         url: 'product/getData',

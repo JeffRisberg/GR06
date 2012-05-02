@@ -16,14 +16,20 @@ Ext.define('GR06.controller.common.AccountController', {
         alert("dbl");
     },
     
-    init: function() {
-      alert("setting up event handlers");     
+    init: function() {    
       this.control({
          'accountPanel > gridpanel': {
              itemclick: this.doRowClick,  
              itemdblclick: this.doRowDblClick                 
+         },        
+         'accountPanel': {
+                activate: this.onAccountPanelActivate
          }
-         });
-      alert("setting up event handlers");      
+        });          
+    },
+    
+    onAccountPanelActivate: function(panel) {
+        var grid = this.getAccountPanelGrid();
+        grid.getStore().load();
     }
 });
