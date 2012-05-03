@@ -4,8 +4,8 @@ Ext.define('GR06.view.MainTabPanel', {
     
     requires: [
         'GR06.view.common.HomePanel',
-        'GR06.view.common.AccountPanel',
-        'GR06.view.common.ProductPanel',
+        'GR06.view.business.AccountPanel',
+        'GR06.view.business.ProductPanel',
         'GR06.view.business.SalesOrderPanel',
         'GR06.view.common.AdministrationPanel'
     ],

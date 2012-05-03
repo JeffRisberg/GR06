@@ -1,7 +1,7 @@
 /**
  * Controller for the Account panel.
  */
-Ext.define('GR06.controller.common.AccountController', {
+Ext.define('GR06.controller.business.AccountController', {
     extend: 'Ext.app.Controller',
     
     refs: [

@@ -1,12 +1,12 @@
 /**
  * Store for the Account list.
  */
-Ext.define('GR06.store.common.AccountStore', {
+Ext.define('GR06.store.business.AccountStore', {
     extend: 'Ext.data.Store',
-    requires: 'GR06.model.common.Account',
-    model: 'GR06.model.common.Account',
+    requires: 'GR06.model.business.Account',
+    model: 'GR06.model.business.Account',
 
-    storeId: 'common.AccountStore',
+    storeId: 'business.AccountStore',
     
     proxy: {
         type: 'ajax',

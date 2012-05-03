@@ -1,10 +1,9 @@
-Ext.define('GR06.view.common.AccountPanel', {
+Ext.define('GR06.view.business.AccountPanel', {
     extend: 'Ext.panel.Panel',
     alias: 'widget.accountPanel',    
 
     requires: [
-        'GR06.store.common.AccountStore',
-        'Ext.grid.RowSelectionModel'
+        'GR06.store.business.AccountStore'
     ],
     
     title: 'Accounts',    
@@ -30,7 +29,7 @@ Ext.define('GR06.view.common.AccountPanel', {
                         { dataIndex: 'name', text: 'Name', align:'left', width: 200 },
                         { dataIndex: 'description', text: 'Description', align:'left' }                     
                     ],                                      
-                    store: Ext.create('GR06.store.common.AccountStore')                    
+                    store: Ext.create('GR06.store.business.AccountStore')                    
                 },
                 {
                     flex: 1,

@@ -1,9 +1,13 @@
+/**
+ * @author Jeff Risberg
+ * @since April 2012
+ */
 Ext.define('GR06.view.common.HomePanel', {
     extend: 'Ext.panel.Panel',
     alias: 'widget.homePanel',    
 
     requires: [
-        'GR06.store.common.AccountStore'
+        'GR06.store.business.AccountStore'
     ],
   
     title: 'Home',  
@@ -36,7 +40,7 @@ Ext.define('GR06.view.common.HomePanel', {
                     editable: false,
                     displayField: 'name',
                     forceSelection: true,
-                    store: 'common.AccountStore',
+                    store: 'business.AccountStore',
                     valueField: 'id',
                     flex: 1
                 },

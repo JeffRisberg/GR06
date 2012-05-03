@@ -1,9 +1,9 @@
-Ext.define('GR06.view.common.ProductPanel', {
+Ext.define('GR06.view.business.ProductPanel', {
     extend: 'Ext.panel.Panel',
     alias: 'widget.productPanel',   
 
     requires: [
-        'GR06.store.common.ProductStore'
+        'GR06.store.business.ProductStore'
     ],
       
     border: 0,
@@ -34,7 +34,7 @@ Ext.define('GR06.view.common.ProductPanel', {
                  {
                     xtype: 'dataview',
                     itemId: 'productView',
-                    store: 'common.ProductStore',                   
+                    store: 'business.ProductStore',                   
                     tpl: myTpl,      
                     itemSelector: 'div.panel',    
                     flex: 1,                                      

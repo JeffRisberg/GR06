@@ -1,22 +1,23 @@
-Ext.define('GR06.view.common.AdministrationPanel', {
+/**
+ * Provides a list of categories down the left side
+ *
+ * @author Jeff Risberg
+ * @since April 2012
+ */
+Ext.define('GR06.view.common.CategoryPanel', {
     extend: 'Ext.panel.Panel',
-    alias: 'widget.administrationPanel',   
-
-    requires: [
-        'GR06.store.business.ProductStore'
-    ],
- 
-    title: 'Administration',   
-    id: 'AdministrationPanel',
+    alias: 'widget.siteCategoryPanel',
+   
+    width: 250,
     layout: {
         align: 'stretch',
-        padding: '',
         type: 'vbox'
     },
-    border: 0,
-    padding: '',   
-    bodyPadding: 5,    
- 
+    bodyPadding: 5,
+    collapsible: true,
+    hideCollapseTool: true,
+    title: 'Category',
+
     initComponent: function() {
         var me = this;
 
@@ -27,27 +28,20 @@ Ext.define('GR06.view.common.AdministrationPanel', {
                     height: 15,
                     margin: '0 0 2 0',
                     width: 51,
-                    text: 'Section 1',
+                    text: 'Category',
                     flex: 0
                 },
                 {
                     xtype: 'combobox',
-                    id: 'ProductBox',
                     queryMode: 'local',
                     size: 32,
                     editable: false,
-                    displayField: 'name',
+                    displayField: 'url',
                     forceSelection: true,
-                    store: 'business.ProductStore',
+                    store: Ext.create('GR06.store.common.CategoryStore'),
                     valueField: 'id',
-                    flex: 1
-                },
-                {
-                    xtype: 'label',
-                    margin: '0 0 2 0',
-                    text: 'Section 2',
                     flex: 0
-                }
+                }               
             ]
         });
 
