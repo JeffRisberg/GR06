@@ -179,13 +179,13 @@ class BootStrap {
             AccountType accountType = AccountType.findByName("Customer")
             Account account
 
-            account = new Account(name: "Account 1", type: accountType)
+            account = new Account(name: "Account 1", type: accountType, description: "Y543I Acct")
             account.save()
-            account = new Account(name: "Account 2", type: accountType)
+            account = new Account(name: "Account 2", type: accountType, description: "T723E Acct")
             account.save()
-            account = new Account(name: "Account 3", type: accountType)
+            account = new Account(name: "Account 3", type: accountType, description: "S932T Acct")
             account.save()
-            account = new Account(name: "Account 4", type: accountType)
+            account = new Account(name: "Account 4", type: accountType, description: "A1234R Acct")
             account.save()
         }
         else {

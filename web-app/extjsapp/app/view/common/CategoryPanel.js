@@ -6,7 +6,7 @@
  */
 Ext.define('GR06.view.common.CategoryPanel', {
     extend: 'Ext.panel.Panel',
-    alias: 'widget.siteCategoryPanel',
+    alias: 'widget.categoryPanel',
    
     width: 250,
     layout: {
@@ -16,7 +16,7 @@ Ext.define('GR06.view.common.CategoryPanel', {
     bodyPadding: 5,
     collapsible: true,
     hideCollapseTool: true,
-    title: 'Category',
+    title: "Category",
 
     initComponent: function() {
         var me = this;
@@ -28,7 +28,7 @@ Ext.define('GR06.view.common.CategoryPanel', {
                     height: 15,
                     margin: '0 0 2 0',
                     width: 51,
-                    text: 'Category',
+                    text: 'Selector',
                     flex: 0
                 },
                 {
@@ -36,7 +36,7 @@ Ext.define('GR06.view.common.CategoryPanel', {
                     queryMode: 'local',
                     size: 32,
                     editable: false,
-                    displayField: 'url',
+                    displayField: 'name',
                     forceSelection: true,
                     store: Ext.create('GR06.store.common.CategoryStore'),
                     valueField: 'id',
@@ -47,5 +47,4 @@ Ext.define('GR06.view.common.CategoryPanel', {
 
         me.callParent(arguments);
     }
-
 });

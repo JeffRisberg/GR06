@@ -5,7 +5,7 @@
     <meta name="robots" content="noindex,nofollow"/>
     <title><g:layoutTitle/></title>
 
-    <link rel="stylesheet" href="${resource(dir: 'extjsapp/extjs/resources/css', file: 'ext-all.css')}"/>
+    <link rel="stylesheet" href="${resource(dir: 'extjsapp/extjs/resources/css', file: 'ext-gr06.css')}"/>   
     <link rel="stylesheet" href="${resource(dir: 'extjsapp/ux/css', file: 'CheckHeader.css')}"/>          
     <link rel="stylesheet" href="${resource(dir: 'css', file: 'main-ext.css')}"/>
     

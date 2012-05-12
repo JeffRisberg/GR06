@@ -34,4 +34,25 @@ class PageFrameworkController {
         println "returning " + wrapper.encodeAsJSON()
         render wrapper.encodeAsJSON()
     }
+
+    def getCategoryData = {
+        println "call to getCategoryData for PageFrameworkController"
+
+        List results = []
+        Map category
+
+        category = [id: 1, name: "Alpha"]
+        results.add(category)
+        category = [id: 2, name: "Beta"]
+        results.add(category)
+        category = [id: 3, name: "Gamma"]
+        results.add(category)
+        category = [id: 4, name: "Delta"]
+        results.add(category)
+
+        def wrapper = [:]
+        wrapper['data'] = results
+        println "returning " + wrapper.encodeAsJSON()
+        render wrapper.encodeAsJSON()
+    }
 }

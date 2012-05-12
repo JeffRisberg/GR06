@@ -5,8 +5,10 @@ Ext.define('GR06.controller.business.AccountController', {
     extend: 'Ext.app.Controller',
     
     refs: [
-     { ref: 'accountPanelGrid',
-       selector: 'accountPanel > gridpanel[itemId=accountGrid]' }
+     { ref: 'categoryCombobox',
+       selector: 'accountPanel combobox' },
+     { ref: 'accountListGrid',
+       selector: 'accountPanel gridpanel[itemId=accountGrid]' }
     ],
     
     doRowClick: function() {
@@ -29,7 +31,10 @@ Ext.define('GR06.controller.business.AccountController', {
     },
     
     onAccountPanelActivate: function(panel) {
-        var grid = this.getAccountPanelGrid();
-        grid.getStore().load();
+        var categoryCombobox = this.getCategoryCombobox();
+        categoryCombobox.getStore().load();
+        
+        var accountGrid = this.getAccountListGrid();
+        accountGrid.getStore().load();
     }
 });

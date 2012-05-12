@@ -10,7 +10,7 @@ Ext.define('GR06.store.common.CategoryStore', {
  
     proxy: {
         type: 'ajax',
-        url: '/pageFramework/getCategoryData',
+        url: 'pageFramework/getCategoryData',
         reader: {
             type: 'json',
             root: 'data'
