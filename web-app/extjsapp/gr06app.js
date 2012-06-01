@@ -19,7 +19,8 @@ Ext.application({
         'common.WorkspaceController',    
         'business.AccountController',
         'business.ProductController',       
-        'business.SalesOrderController'
+        'business.SalesOrderController',
+        'reporting.ReportingController'
     ],
 
     views: [

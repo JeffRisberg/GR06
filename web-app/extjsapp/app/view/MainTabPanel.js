@@ -7,7 +7,8 @@ Ext.define('GR06.view.MainTabPanel', {
         'GR06.view.business.AccountPanel',
         'GR06.view.business.ProductPanel',
         'GR06.view.business.SalesOrderPanel',
-        'GR06.view.common.AdministrationPanel'
+        'GR06.view.common.ReportingPanel',
+        'GR06.view.common.AdministrationPanel'        
     ],
     
     id: 'MainTabPanel',
@@ -29,6 +30,9 @@ Ext.define('GR06.view.MainTabPanel', {
           },
           {
             xtype: 'salesOrderPanel',            
+          },
+          {
+            xtype: 'reportingPanel',            
           },
           {
             xtype: 'administrationPanel',                 
