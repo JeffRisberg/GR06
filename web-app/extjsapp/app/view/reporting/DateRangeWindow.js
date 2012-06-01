@@ -15,7 +15,7 @@
     padding: 0,
     bodyPadding: 10,
 
-    layout: {type: 'vbox'},
+    layout: { type: 'vbox' },
 
     buttons: [
         { text: 'Apply', itemId: 'ok' },

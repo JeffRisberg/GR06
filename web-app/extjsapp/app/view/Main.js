@@ -1,6 +1,6 @@
 Ext.define('GR06.view.Main', {
     extend: 'Ext.container.Viewport',
-    alias: 'view.Main',
+    alias: 'widget.Main',
     
     requires: [
         'GR06.view.MainTabPanel'

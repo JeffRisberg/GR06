@@ -1,3 +1,5 @@
+Ext.Loader.setPath('Ext.ux', 'extjsapp/ux');
+
 Ext.Loader.setConfig({
     enabled: true
 });
@@ -27,10 +29,10 @@ Ext.application({
         'Main'
     ],
         
-    launch: function() {      
+    launch: function() {            
         Ext.QuickTips.init();    
         Ext.require('GR06.Override');   
-       
+              
         var main = Ext.create('GR06.view.Main');
     }
 });

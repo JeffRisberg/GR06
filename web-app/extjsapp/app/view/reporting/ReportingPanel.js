@@ -5,6 +5,7 @@ Ext.define('GR06.view.reporting.ReportingPanel', {
     extend: 'Ext.panel.Panel',
     alias: 'widget.reportingPanel',
 
+    title: 'Reporting',
     layout: { type: 'vbox', align: 'stretch' },
     cls: 'reporting-opts',
 

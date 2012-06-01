@@ -5,7 +5,7 @@
 Ext.define('GR06.controller.reporting.ReportingController', {
     extend: 'Ext.app.Controller',
     requires: [              
-        'GR06.view.reporting.ReportGrid',
+        'GR06.view.reporting.ReportingGrid',
         'GR06.view.reporting.DateRangeWindow',
         'GR06.view.reporting.DimensionWindow'
     ],
@@ -33,7 +33,7 @@ Ext.define('GR06.controller.reporting.ReportingController', {
         yearMonthDay: { gridFormat: 'm/d/Y', chartFormat: 'M/j', step: Ext.Date.DAY, stepValue: 1 }
     },
 
-    init: function() {
+    init: function() {       
         this.control({
             'reportPanel': {
                 beforerender: this.onReportPanelBeforeRender,
@@ -53,7 +53,7 @@ Ext.define('GR06.controller.reporting.ReportingController', {
         });
 
         // application-wide event handlers
-        this.application.on('categoryChange', this.onCategoryChange, this);
+        this.application.on('categoryChange', this.onCategoryChange, this);      
     },
 
     onReportPanelBeforeRender: function(panel) {

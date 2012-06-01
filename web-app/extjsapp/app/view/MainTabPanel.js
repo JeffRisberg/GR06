@@ -7,7 +7,7 @@ Ext.define('GR06.view.MainTabPanel', {
         'GR06.view.business.AccountPanel',
         'GR06.view.business.ProductPanel',
         'GR06.view.business.SalesOrderPanel',
-        'GR06.view.common.ReportingPanel',
+        'GR06.view.reporting.ReportingPanel',
         'GR06.view.common.AdministrationPanel'        
     ],
     
